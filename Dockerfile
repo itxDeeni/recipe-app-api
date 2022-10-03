@@ -1,4 +1,4 @@
-FROM python:3.9-1lpine3.13
+FROM python:3.9
 LABEL maintainer="@itxdeeni"
 
 ENV PYTHONBUFFERED 1
@@ -8,9 +8,9 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
-RUN python -m venv /pu && \
+RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
-    /py/bin/pip install /tmp/requirements.txt && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
     rm -rf /tmp && \ 
     adduser \
         --disabled-password \ 
